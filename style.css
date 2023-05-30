@@ -92,7 +92,17 @@ main {
     margin-left: 108px;
     margin-top: 402px;
     position:absolute;
-    width: 336px;    
+    width: 336px; 
+    visibility: hidden;  
+}
+
+.btn-copiar--hidden {
+    visibility: hidden;
+}
+
+
+.btn-copiar--visible {
+    visibility: visible;
 }
 
 .btn-copiar:hover {
@@ -106,7 +116,7 @@ main {
 }
 
 footer {
-  height: 80px;
+  margin-top: 200px;
   color: gray;
   display: flex;
   align-items: center;

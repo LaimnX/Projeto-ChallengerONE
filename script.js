@@ -1,5 +1,6 @@
 const textArea = document.querySelector(".text-area");
 const mensagem = document.querySelector(".mensagem");
+const elementBtnCopiar = document.getElementById("btn-copiar");
 
 // As "chaves" de criptografia que utilizaremos são:
 // A letra "e" é convertida para "enter"
@@ -11,7 +12,7 @@ const mensagem = document.querySelector(".mensagem");
 function btnEncriptar() {
     const textoEncriptado = encriptar(textArea.value);
     mensagem.value = textoEncriptado;
-    textArea = "";
+    textArea.value = "";
 }
 
 function encriptar(stringEncriptada) {
@@ -24,7 +25,8 @@ function encriptar(stringEncriptada) {
             stringEncriptada = stringEncriptada.replaceAll(matrizCodigo[i][0], matrizCodigo[i][1]);
         }
     }
-
+    
+    elementBtnCopiar.style.visibility = "visible";
     return stringEncriptada;
 }
 
@@ -32,7 +34,8 @@ function encriptar(stringEncriptada) {
 function btnDesencriptar() {
     const textoDesencriptado = desencriptar(textArea.value);
     mensagem.value = textoDesencriptado;
-    textArea = "";
+    textArea.value = "";
+    
 }
 
 function desencriptar(stringDesencriptada) {
@@ -61,4 +64,8 @@ function btnCopiar() {
         console.error("Erro ao copiar o texto: ", error);
       });
     mensagem.value = "";
+
+    elementBtnCopiar.style.visibility = "hidden";
+    
+
 }
