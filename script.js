@@ -1,6 +1,5 @@
 const textArea = document.querySelector(".text-area");
-const mensangem = document.querySelector(".mensagem");
-
+const mensagem = document.querySelector(".mensagem");
 
 // As "chaves" de criptografia que utilizaremos são:
 // A letra "e" é convertida para "enter"
@@ -11,7 +10,7 @@ const mensangem = document.querySelector(".mensagem");
 
 function btnEncriptar() {
     const textoEncriptado = encriptar(textArea.value);
-    mensangem.value = textoEncriptado;
+    mensagem.value = textoEncriptado;
     textArea = "";
 }
 
@@ -32,7 +31,7 @@ function encriptar(stringEncriptada) {
 
 function btnDesencriptar() {
     const textoDesencriptado = desencriptar(textArea.value);
-    mensangem.value = textoDesencriptado;
+    mensagem.value = textoDesencriptado;
     textArea = "";
 }
 
@@ -51,3 +50,15 @@ function desencriptar(stringDesencriptada) {
     return stringDesencriptada
 }
 
+function btnCopiar() {
+    const texto = mensagem.value;
+    navigator.clipboard
+      .writeText(texto)
+      .then(() => {
+        console.log("Texto copiado para a área de transferência: " + texto);
+      })
+      .catch((error) => {
+        console.error("Erro ao copiar o texto: ", error);
+      });
+    mensagem.value = "";
+}
