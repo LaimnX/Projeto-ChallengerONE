@@ -32,7 +32,7 @@ main {
 
 .mensagem {
     background: rgb(112, 107, 107);
-    background-image: url(/Imagens/Boneco.png);
+    background-image: url(./Imagens/Boneco.png);
     background-repeat: no-repeat;
     border: none;
     border-radius: 24px;
